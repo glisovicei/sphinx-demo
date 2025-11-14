@@ -120,12 +120,22 @@ sphinx-demo/
 
 ## Development
 
-The API runs in debug mode by default when started with `python app.py`. This enables:
+The API runs in debug mode by default for development. This enables:
 - Auto-reload on code changes
 - Detailed error messages
 - Debug toolbar
 
-For production deployment, set `DEBUG=False` in the configuration.
+For production deployment, set the environment variable:
+```bash
+export FLASK_ENV=production
+python app.py
+```
+
+Or use a production WSGI server like gunicorn:
+```bash
+pip install gunicorn
+gunicorn -w 4 -b 0.0.0.0:5000 app:app
+```
 
 ## License
 
