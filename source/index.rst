@@ -3,17 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Sphinx Demo documentation
+Basic Python REST API
 =========================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+A simple REST API built with Flask that demonstrates CRUD operations for managing items.
+
+Check out the :doc:`features` section for further information, including how to install the project.
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+
 
 .. note::
    This project is under active development.
+
+
+Contents
+--------
+
+.. toctree::
+
+   features
+   usage
