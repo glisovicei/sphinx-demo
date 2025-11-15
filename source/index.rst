@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Basic Python REST API
+Sphinx Demo
 =========================
 
 A simple REST API built with Flask that demonstrates CRUD operations for managing items.
@@ -26,3 +26,5 @@ Contents
 
    features
    usage
+   api_reference
+   api

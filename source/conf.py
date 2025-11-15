@@ -1,3 +1,10 @@
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here.
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -16,7 +23,9 @@ release = '0.0.1'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.duration'
+    'sphinx.ext.duration',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary'
 ]
 
 templates_path = ['_templates']
