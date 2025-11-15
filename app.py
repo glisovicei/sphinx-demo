@@ -21,7 +21,13 @@ next_id = 3
 
 @app.route('/', methods=['GET'])
 def home():
-    """Home endpoint with API information"""
+    """
+    Home endpoint with API information
+    
+    :return: Welcome message and API details.
+    :rtype: json
+
+    """
     return jsonify({
         "message": "Welcome to the Basic Python REST API",
         "version": "1.0.0",
@@ -38,7 +44,13 @@ def home():
 
 @app.route('/api/items', methods=['GET'])
 def get_items():
-    """Get all items"""
+    """
+    Get all items
+    
+    :return: All items.
+    :rtype: json
+
+    """
     return jsonify({
         "success": True,
         "count": len(items),
@@ -48,7 +60,16 @@ def get_items():
 
 @app.route('/api/items/<int:item_id>', methods=['GET'])
 def get_item(item_id):
-    """Get a specific item by ID"""
+    """
+    Get a specific item by ID
+    
+    :param item_id: Item id.
+    :type item_id: str
+
+    :return: Specific item.
+    :rtype: json
+
+    """
     item = next((item for item in items if item['id'] == item_id), None)
     
     if item is None:
@@ -65,7 +86,13 @@ def get_item(item_id):
 
 @app.route('/api/items', methods=['POST'])
 def create_item():
-    """Create a new item"""
+    """
+    Create a new item
+    
+    :return: Status message and the created item.
+    :rtype: json
+
+    """
     global next_id
     
     if not request.json:
@@ -102,7 +129,16 @@ def create_item():
 
 @app.route('/api/items/<int:item_id>', methods=['PUT'])
 def update_item(item_id):
-    """Update an existing item"""
+    """
+    Update an existing item
+    
+    :param item_id: Item id.
+    :type item_id: str
+
+    :return: Status message and the updated item.
+    :rtype: json
+
+    """
     item = next((item for item in items if item['id'] == item_id), None)
     
     if item is None:
@@ -130,7 +166,16 @@ def update_item(item_id):
 
 @app.route('/api/items/<int:item_id>', methods=['DELETE'])
 def delete_item(item_id):
-    """Delete an item"""
+    """
+    Delete an item
+    
+    :param item_id: Item id.
+    :type item_id: str
+
+    :return: Status message.
+    :rtype: json
+
+    """
     global items
     
     item = next((item for item in items if item['id'] == item_id), None)
@@ -151,7 +196,16 @@ def delete_item(item_id):
 
 @app.errorhandler(404)
 def not_found(error):
-    """Handle 404 errors"""
+    """
+    Handle 404 errors
+    
+    :param error: Optional "error" message.
+    :type error: str or None
+
+    :return: Status message.
+    :rtype: json
+
+    """
     return jsonify({
         "success": False,
         "error": "Endpoint not found"
@@ -160,7 +214,16 @@ def not_found(error):
 
 @app.errorhandler(500)
 def internal_error(error):
-    """Handle 500 errors"""
+    """
+    Handle 500 errors
+    
+    :param error: Optional "error" message.
+    :type error: str or None
+
+    :return: Status message.
+    :rtype: json
+
+    """
     return jsonify({
         "success": False,
         "error": "Internal server error"
